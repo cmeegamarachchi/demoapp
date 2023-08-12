@@ -5,8 +5,8 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const message = (await fetch(`/api/echo`)).data;
-      setData(user);
+      const { clientPrincipal } = await( await fetch(`/api/echo`)).json();
+      setData(clientPrincipal);
     })();
   });
 
